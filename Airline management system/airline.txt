@@ -1,0 +1,66 @@
+drop database airline_Management_system;
+
+create database airline_Management_system;
+
+show databases;
+
+use airline_Management_system
+
+create table customer(
+passport_no varchar(7) primary key,
+full_name varchar(40) not null,
+father_name varchar(40) not null,
+address varchar(150) not null,
+phone_no varchar(10) not null
+);
+
+desc customer;
+
+insert into customer
+values('A123456','xyz','abc','klm',1234567890);
+
+select * from customer;
+
+create table flight(
+flight_name varchar(40) not null,
+flight_code varchar(40) primary key,
+class varchar(30) not null,
+total_seats int not null,
+source varchar(40) not null default'Lucknow',
+destination varchar(40) not null,
+departure_time varchar(30) not null,
+arrival_time varchar(30) not null,
+ticket_cost int not null
+);
+
+desc flight;
+
+insert into flight
+values('airindia','b3201','economy',125,'Lucknow','Goa','7am','1pm',2500);
+
+select * from flight;
+
+create table ticket(
+Passport_no varchar(7) not null,
+Flight_code varchar(30) not null ,
+Flight_name varchar(30) not null,
+Class varchar(30) not null,
+source varchar(30) not null,
+destination varchar(30) not null,
+Arrtime varchar(30) not null,
+Departime varchar(30) not null,
+Curdate varchar(20) not null,
+Name varchar(30) not null,
+Age int check(age>2) not null,
+Gender varchar(16) not null,
+Seat_no int not null,
+Fare int not null, 
+primary key(Passport_no, flight_code)
+);
+
+desc Ticket;
+
+insert into ticket
+values('A123456','b3201','airindia','economy','Lucknow','Goa','7am','1pm','10/23/19','xyz',25,'Male',1,2500);
+
+select * from ticket;
